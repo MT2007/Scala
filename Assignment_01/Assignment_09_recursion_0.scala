@@ -19,5 +19,6 @@ object recursion_0 {
   def main(args: Array[String]): Unit = {
     var lst = List(0,12,34,66,0,6,89,0,45,39,99,0,19,0)
     println(recur_0(lst))
+    println("to check using filter --> "+lst.filter(_ > 0))
   }
 }
