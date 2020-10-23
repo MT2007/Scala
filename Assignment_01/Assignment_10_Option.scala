@@ -3,7 +3,7 @@ package Demo
 object Option {
   def main(args: Array[String]): Unit = {
     var mylist = List(1,2,3,4,5)
-    var mymap = Map(1 -> "Moh", 2 -> "Thu", 3 -> "Dan")
+    var mymap = Map(1 -> "Jan", 2 -> "Feb", 3 -> "Mar")
     var opt: Option[Int] = Some(122)
     var opt2: Option[Int] = None
     println(mylist.find( _ > 2 ))
@@ -16,5 +16,7 @@ object Option {
     println(mymap.get(4).getOrElse("not exists"))
     println(opt.isEmpty)
     println(opt2.isEmpty)
+    var testlist: List[Int] = List(1,2,3,4,-4,-5,12,-9)
+    println(testlist.map(_.abs))
   }
 }
