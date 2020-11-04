@@ -6,10 +6,11 @@ class BankAccount(var name: String, Balance: Int = 0){
     this.currentBalance = this.currentBalance + bal
   }
   def withdraw(bal: Int){
-    if (this.currentBalance <= 0) {
+    if (this.currentBalance < bal ) {
       throw new Error("Not sufficient for this operation! please make a deposit. have a nice day!")
+    } else {
+      this.currentBalance = this.currentBalance - bal
     }
-    this.currentBalance = this.currentBalance - bal
   }
   def getcurrentBalance(): Int = {
     return this.currentBalance
@@ -25,6 +26,7 @@ object Bank {
     act1.deposits(1000)
     act1.deposits(1000)
     act1.withdraw(500)
+    act1.withdraw(1499)
     println("After deposit & withdraw account")
     println("Mr."+act1.name+", your current bank account balance is " +act1.getcurrentBalance())
   }
