@@ -1,27 +1,23 @@
 package Demo
-class Person(Fname: String, Lname: String){
-  def Fname(): String= {return Fname}
-  def Lname(): String= {return Lname}
-}
 
 object greetings {
 
-  def sendgreeting(a: Person): Unit= {
-    a.Fname() match {
-      case "Moh" => println("Good day " + a.Fname())
-      case _ => a.Lname() match {
-        case "Smith" => printf("Nice to meet you Mr. %s \n",a.Lname())
-        case _ => printf("hello Mr. %s %s", a.Fname(), a.Lname())
-      }
+  def sendgreet(x: Any): String = {
+    x match {
+      case Person(first, "Mws") => s"found Mws, first name = $first"
+      case Person(first, "smith") => s"found smith, first name = $first"
+      case _ => "Not Found"
     }
+  }
+
+  case class Person(fname:String,lname:String ) {
+    var fName: String = fname
+    var lName: String = lname
   }
 
   def main(args: Array[String]): Unit = {
     val p1= new Person("Moh", "Mws")
-    var p2 = new Person("Jon", "Smith")
-    var p3 = new Person("Dan", "White")
-    sendgreeting(p1)
-    sendgreeting(p2)
-    sendgreeting(p3)
+    var p2 = new Person("Jon", "smith")
+    println(sendgreet(p1))
   }
 }
